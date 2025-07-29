@@ -89,6 +89,7 @@ export default function ActiveOrders() {
             <div style="margin-top: 6px;">
               <div style="font-weight: bold; font-size: 13px;">Tavolo: ${order.tableNumber}</div>
               <div>Cliente: ${order.customerName}</div>
+              <div>Coperti: ${order.covers}</div>
               <div style="font-size: 10px; color: #666;">
                 ${new Date(order.createdAt).toLocaleDateString('it-IT')} - ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
               </div>
@@ -197,6 +198,7 @@ export default function ActiveOrders() {
           <div style="margin-bottom: 8px; font-size: 10px;">
             <div>Tavolo: ${order.tableNumber}</div>
             <div>Cliente: ${order.customerName}</div>
+            <div>Coperti: ${order.covers}</div>
             <div style="color: #666;">
               ${new Date(order.createdAt).toLocaleDateString('it-IT')} - ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
             </div>
@@ -295,6 +297,7 @@ export default function ActiveOrders() {
                       Tavolo {order.tableNumber}
                     </span>
                     <p className="text-gray-600 mt-1">{order.customerName}</p>
+                    <p className="text-gray-500 text-sm">Coperti: {order.covers}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-lg font-bold text-secondary">

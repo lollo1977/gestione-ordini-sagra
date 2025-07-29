@@ -19,8 +19,10 @@ interface OrderItem {
 export default function OrderForm() {
   const [tableNumber, setTableNumber] = useState("");
   const [customerName, setCustomerName] = useState("");
+  const [covers, setCovers] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState<"cash" | "pos">("cash");
   const [orderItems, setOrderItems] = useState<Map<string, OrderItem>>(new Map());
+  const [cashGiven, setCashGiven] = useState("");
 
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -54,8 +56,10 @@ export default function OrderForm() {
   const resetForm = () => {
     setTableNumber("");
     setCustomerName("");
+    setCovers(1);
     setPaymentMethod("cash");
     setOrderItems(new Map());
+    setCashGiven("");
   };
 
   const updateQuantity = (dishId: string, dish: Dish, change: number) => {
@@ -91,10 +95,25 @@ export default function OrderForm() {
       return;
     }
 
+    // Verifica pagamento in contanti
+    if (paymentMethod === "cash") {
+      const total = calculateTotal();
+      const given = parseFloat(cashGiven) || 0;
+      if (given < total) {
+        toast({
+          title: "Importo insufficiente",
+          description: `Il cliente deve dare almeno €${total.toFixed(2)}`,
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
     const total = calculateTotal();
     const order: InsertOrder = {
       tableNumber: tableNumber,
       customerName,
+      covers,
       total: total.toFixed(2),
       paymentMethod,
       status: "active",
@@ -129,7 +148,7 @@ export default function OrderForm() {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <div>
               <Label htmlFor="tableNumber">Numero Tavolo</Label>
               <Input
@@ -148,6 +167,17 @@ export default function OrderForm() {
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="Mario Rossi"
+              />
+            </div>
+            <div>
+              <Label htmlFor="covers">Numero Coperti</Label>
+              <Input
+                id="covers"
+                type="number"
+                min="1"
+                value={covers}
+                onChange={(e) => setCovers(Math.max(1, parseInt(e.target.value) || 1))}
+                className="text-lg"
               />
             </div>
           </div>
@@ -249,6 +279,56 @@ export default function OrderForm() {
             </div>
           </div>
 
+          {paymentMethod === "cash" && orderItems.size > 0 && (
+            <div className="space-y-3 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <Label htmlFor="cashGiven" className="text-green-800 font-semibold">
+                Pagamento in Contanti
+              </Label>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="cashGiven" className="text-sm text-green-700">
+                    Importo ricevuto dal cliente
+                  </Label>
+                  <Input
+                    id="cashGiven"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    value={cashGiven}
+                    onChange={(e) => setCashGiven(e.target.value)}
+                    placeholder="0.00"
+                    className="text-lg border-green-300 focus:border-green-500"
+                  />
+                </div>
+                <div>
+                  <Label className="text-sm text-green-700">Resto da dare</Label>
+                  <div className="h-10 flex items-center px-3 bg-white border border-green-300 rounded-md">
+                    <span className="text-lg font-bold text-green-700">
+                      €{(() => {
+                        const total = calculateTotal();
+                        const given = parseFloat(cashGiven) || 0;
+                        const change = given - total;
+                        return change >= 0 ? change.toFixed(2) : "0.00";
+                      })()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {(() => {
+                const total = calculateTotal();
+                const given = parseFloat(cashGiven) || 0;
+                if (given > 0 && given < total) {
+                  return (
+                    <div className="text-sm text-red-600 font-medium">
+                      ⚠️ Importo insufficiente (mancano €{(total - given).toFixed(2)})
+                    </div>
+                  );
+                }
+                return null;
+              })()}
+            </div>
+          )}
+
           {orderItems.size > 0 && (
             <div className="border-t pt-4">
               <div className="space-y-2">
@@ -267,8 +347,12 @@ export default function OrderForm() {
                     </div>
                   );
                 })}
-                <div className="border-t pt-2 font-bold text-lg">
-                  <div className="flex justify-between">
+                <div className="border-t pt-2 space-y-1">
+                  <div className="flex justify-between text-sm text-gray-600">
+                    <span>Coperti: {covers}</span>
+                    <span></span>
+                  </div>
+                  <div className="flex justify-between font-bold text-lg">
                     <span>Totale:</span>
                     <span className="text-secondary">€{calculateTotal().toFixed(2)}</span>
                   </div>

@@ -14,6 +14,7 @@ export const orders = pgTable("orders", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   tableNumber: text("table_number").notNull(), // Changed to text to allow letters
   customerName: text("customer_name").notNull(),
+  covers: integer("covers").notNull().default(1), // Number of people at the table
   total: decimal("total", { precision: 10, scale: 2 }).notNull(),
   paymentMethod: text("payment_method").notNull(), // 'cash' or 'pos'
   status: text("status").notNull().default("active"), // 'active' or 'completed'

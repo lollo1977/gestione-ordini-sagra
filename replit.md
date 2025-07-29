@@ -10,6 +10,16 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 29, 2025:**
+- ✓ Migrazione progetto da Replit Agent a ambiente Replit standard completata
+- ✓ Database PostgreSQL configurato e sincronizzato con schema aggiornato
+- ✓ Aggiunto campo "Numero Coperti" nella creazione ordini
+- ✓ Implementata gestione resto per pagamenti in contanti
+- ✓ Validazione automatica importo insufficiente per pagamenti cash
+- ✓ Aggiornati scontrini cucina e cliente per mostrare numero coperti
+- ✓ Interfaccia migliorata con calcolo automatico del resto
+- ✓ Sistema completo e funzionante in ambiente Replit standard
+
 **January 28, 2025:**
 - ✓ Sistema di gestione ordini completamente funzionante
 - ✓ Risolto problema validazione nella creazione ordini (rimosso orderId requirement)
