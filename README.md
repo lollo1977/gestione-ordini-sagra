@@ -28,7 +28,7 @@ Sistema di gestione ordini per ristoranti e sagre con interfaccia italiana.
 3. Creerà sia l'app web che il database PostgreSQL
 
 ### Opzione 2: Deploy Manuale
-1. Crea un PostgreSQL database su Render
+1. Crea un PostgreSQL database su Render (nome: `crcs-bergeggi-db`)
 2. Crea un Web Service con:
    - Build Command: `npm install && npm run build`
    - Start Command: `npm start`

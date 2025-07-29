@@ -11,7 +11,7 @@ Il progetto è pronto per il deploy su Render.com. Ecco i passi:
 ### 2. Crea Database PostgreSQL su Render
 1. Vai su [render.com](https://render.com)
 2. Crea un nuovo **PostgreSQL** service
-3. Nome: `restaurant-pos-db`
+3. Nome: `crcs-bergeggi-db`
 4. Piano: **Free** (per iniziare)
 5. Salva la **External Database URL** che ti viene fornita
 

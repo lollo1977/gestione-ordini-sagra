@@ -10,11 +10,11 @@ services:
         value: production
       - key: DATABASE_URL
         fromDatabase:
-          name: restaurant-db
+          name: crcs-bergeggi-db
           property: connectionString
   
   - type: pserv
-    name: restaurant-db
+    name: crcs-bergeggi-db
     env: postgresql
     plan: free
     databaseName: restaurant_pos
