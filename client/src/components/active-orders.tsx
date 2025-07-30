@@ -211,8 +211,8 @@ export default function ActiveOrders() {
         </head>
         <body>
           <div class="header">
-            <div style="font-size: 12px; font-weight: bold;">CRCS BERGEGGI</div>
-            <div style="font-size: 8px; margin-top: 2px;">Circolo Ricreativo Culturale Sportivo</div>
+            <div style="font-size: 13px; font-weight: bold;">CRCS BERGEGGI</div>
+            <div style="font-size: 10px; margin-top: 2px; font-weight: bold;">Circolo Ricreativo Culturale Sportivo</div>
           </div>
           
           <div style="margin-bottom: 6px; font-size: 10px;">
@@ -234,7 +234,7 @@ export default function ActiveOrders() {
                 ${categoryItems.map(item => `
                   <div class="item">
                     <div style="flex: 1;">
-                      <span style="font-size: 10px;">${item.dish.name}</span>
+                      <span style="font-size: 12px; font-weight: bold;">${item.dish.name}</span>
                       <span style="font-size: 20px; font-weight: 900; color: #000; margin-left: 4px;">${item.quantity}x</span>
                     </div>
                     <span style="font-size: 11px; font-weight: bold;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
@@ -249,9 +249,9 @@ export default function ActiveOrders() {
               <span>TOTALE:</span>
               <span>€${parseFloat(order.total).toFixed(2)}</span>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px;">
-              <span>Pagamento:</span>
-              <span>${order.paymentMethod === 'cash' ? 'Contanti' : 'POS'}</span>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: bold; margin-top: 3px;">
+              <span>PAGAMENTO:</span>
+              <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
             </div>
           </div>
           
