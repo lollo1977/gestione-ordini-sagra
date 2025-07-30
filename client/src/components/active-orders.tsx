@@ -162,14 +162,14 @@ export default function ActiveOrders() {
             }
             body {
               font-family: 'Courier New', monospace;
-              font-size: 9px;
+              font-size: 8px;
               line-height: 1.1;
               color: #000;
               background: #fff;
               margin: 0;
-              padding: 2mm;
-              width: 54mm;
-              max-width: 54mm;
+              padding: 1.5mm;
+              width: 55mm;
+              max-width: 55mm;
               overflow: hidden;
             }
             .header {
@@ -179,11 +179,11 @@ export default function ActiveOrders() {
               padding-bottom: 6px;
             }
             .item {
-              display: block;
-              margin-bottom: 3px;
-              font-size: 11px;
+              margin-bottom: 2px;
+              font-size: 8px;
               width: 100%;
               overflow: visible;
+              line-height: 1.2;
             }
             .total {
               border-top: 1px solid #000;
@@ -236,12 +236,8 @@ export default function ActiveOrders() {
                 <div class="category">${categoryLabel}</div>
                 ${categoryItems.map(item => `
                   <div class="item">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                      <span style="font-size: 9px; font-weight: bold; flex: 1; padding-right: 4px;">${item.dish.name}</span>
-                      <span style="font-size: 14px; font-weight: 900; color: #000;">${item.quantity.toString()}x</span>
-                    </div>
-                    <div style="text-align: right; font-size: 9px; font-weight: bold; margin-top: 1px;">
-                      €${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                    <div style="font-size: 8px; font-weight: bold;">
+                      ${item.quantity}x ${item.dish.name} ........... €${(parseFloat(item.price) * item.quantity).toFixed(2)}
                     </div>
                   </div>
                 `).join('')}
