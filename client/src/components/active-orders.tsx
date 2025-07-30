@@ -99,7 +99,7 @@ export default function ActiveOrders() {
             <div style="font-weight: bold; font-size: 12px;">🍽️ CUCINA 🍽️</div>
             <div style="font-size: 10px; margin-top: 3px;">CRCS BERGEGGI</div>
             <div style="margin-top: 4px;">
-              <div style="font-weight: bold; font-size: 12px;">T.${order.tableNumber} - ${order.customerName}</div>
+              <div style="font-weight: bold; font-size: 12px;">Tavolo ${order.tableNumber} - ${order.customerName}</div>
               <div style="font-size: 12px; font-weight: bold;">Coperti: ${order.covers}</div>
               <div style="font-size: 11px; font-weight: bold;">
                 ${new Date(order.createdAt).toLocaleDateString('it-IT')} ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
@@ -116,8 +116,8 @@ export default function ActiveOrders() {
                 <div class="category">${categoryLabel}</div>
                 ${categoryItems.map(item => `
                   <div class="item">
-                    <span>${item.dish.name}</span>
-                    <span style="font-size: 16px; font-weight: bold; background: #000; color: #fff; padding: 2px 6px; border-radius: 3px;">x${item.quantity}</span>
+                    <span style="font-size: 11px;">${item.dish.name}</span>
+                    <span style="font-size: 18px; font-weight: bold; background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; border: 2px solid #000;">×${item.quantity}</span>
                   </div>
                 `).join('')}
               `;
@@ -234,8 +234,8 @@ export default function ActiveOrders() {
                 ${categoryItems.map(item => `
                   <div class="item">
                     <div style="flex: 1;">
-                      <span>${item.dish.name}</span>
-                      <span style="font-size: 14px; font-weight: bold; background: #000; color: #fff; padding: 1px 4px; border-radius: 2px; margin-left: 4px;">x${item.quantity}</span>
+                      <span style="font-size: 10px;">${item.dish.name}</span>
+                      <span style="font-size: 16px; font-weight: bold; background: #000; color: #fff; padding: 3px 6px; border-radius: 3px; margin-left: 4px; border: 2px solid #000;">×${item.quantity}</span>
                     </div>
                     <span style="font-size: 11px; font-weight: bold;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
                   </div>
