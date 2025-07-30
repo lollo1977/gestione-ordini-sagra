@@ -50,7 +50,7 @@ export const printKitchenReceipt = (order: OrderWithItems) => {
             padding-top: 4px;
             text-align: center;
             margin-top: 6px;
-            font-size: 7px;
+            font-size: 8px;
           }
           .category {
             font-weight: bold;
@@ -69,7 +69,7 @@ export const printKitchenReceipt = (order: OrderWithItems) => {
           <div style="margin-top: 3px;">
             <div style="font-weight: bold;">T.${order.tableNumber} - ${order.customerName}</div>
             <div style="font-size: 7px;">Coperti: ${order.covers}</div>
-            <div style="font-size: 6px;">
+            <div style="font-size: 8px;">
               ${new Date(order.createdAt).toLocaleDateString('it-IT')} ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
             </div>
           </div>
@@ -93,7 +93,7 @@ export const printKitchenReceipt = (order: OrderWithItems) => {
         </div>
         
         <div class="footer">
-          Ordine #${order.id.slice(-6)}
+          <div style="font-size: 8px;">Ordine #${order.id.slice(-6)}</div>
         </div>
         
         <script>
@@ -158,7 +158,7 @@ export const printCustomerReceipt = (order: OrderWithItems) => {
             border-top: 1px solid #000;
             padding-top: 4px;
             margin-top: 4px;
-            font-size: 6px;
+            font-size: 8px;
           }
           .category {
             font-weight: bold;
@@ -181,7 +181,7 @@ export const printCustomerReceipt = (order: OrderWithItems) => {
           <div>Tavolo: ${order.tableNumber}</div>
           <div>Cliente: ${order.customerName}</div>
           <div>Coperti: ${order.covers}</div>
-          <div style="font-size: 6px;">
+          <div style="font-size: 8px;">
             ${new Date(order.createdAt).toLocaleDateString('it-IT')} - ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
           </div>
         </div>
@@ -218,8 +218,8 @@ export const printCustomerReceipt = (order: OrderWithItems) => {
         </div>
         
         <div class="footer">
-          <div>Grazie per la visita!</div>
-          <div>Ordine #${order.id.slice(-6)}</div>
+          <div style="font-size: 8px;">Grazie per la visita!</div>
+          <div style="font-size: 8px;">Ordine #${order.id.slice(-6)}</div>
         </div>
         
         <script>
