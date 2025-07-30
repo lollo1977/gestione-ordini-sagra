@@ -69,9 +69,9 @@ export default function ActiveOrders() {
             .item {
               display: flex;
               justify-content: space-between;
-              margin-bottom: 3px;
+              margin-bottom: 4px;
               font-weight: bold;
-              font-size: 11px;
+              font-size: 12px;
             }
             .footer {
               border-top: 1px dashed #000;
@@ -97,8 +97,8 @@ export default function ActiveOrders() {
             <div style="font-size: 10px; margin-top: 3px;">CRCS BERGEGGI</div>
             <div style="margin-top: 4px;">
               <div style="font-weight: bold; font-size: 12px;">T.${order.tableNumber} - ${order.customerName}</div>
-              <div style="font-size: 10px;">Coperti: ${order.covers}</div>
-              <div style="font-size: 10px;">
+              <div style="font-size: 12px; font-weight: bold;">Coperti: ${order.covers}</div>
+              <div style="font-size: 11px; font-weight: bold;">
                 ${new Date(order.createdAt).toLocaleDateString('it-IT')} ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function ActiveOrders() {
                 ${categoryItems.map(item => `
                   <div class="item">
                     <span>${item.dish.name}</span>
-                    <span>x${item.quantity}</span>
+                    <span style="font-size: 14px; font-weight: bold;">x${item.quantity}</span>
                   </div>
                 `).join('')}
               `;
@@ -174,8 +174,8 @@ export default function ActiveOrders() {
             .item {
               display: flex;
               justify-content: space-between;
-              margin-bottom: 2px;
-              font-size: 9px;
+              margin-bottom: 3px;
+              font-size: 11px;
             }
             .total {
               border-top: 1px solid #000;
@@ -210,8 +210,8 @@ export default function ActiveOrders() {
           <div style="margin-bottom: 6px; font-size: 10px;">
             <div>Tavolo: ${order.tableNumber}</div>
             <div>Cliente: ${order.customerName}</div>
-            <div>Coperti: ${order.covers}</div>
-            <div style="font-size: 10px;">
+            <div style="font-size: 12px; font-weight: bold;">Coperti: ${order.covers}</div>
+            <div style="font-size: 11px; font-weight: bold;">
               ${new Date(order.createdAt).toLocaleDateString('it-IT')} - ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
             </div>
           </div>
@@ -227,9 +227,9 @@ export default function ActiveOrders() {
                   <div class="item">
                     <div style="flex: 1;">
                       <span>${item.dish.name}</span>
-                      <span style="font-size: 8px;"> x${item.quantity}</span>
+                      <span style="font-size: 12px; font-weight: bold;"> x${item.quantity}</span>
                     </div>
-                    <span>€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
+                    <span style="font-size: 11px; font-weight: bold;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
                   </div>
                 `).join('')}
               `;
