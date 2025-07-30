@@ -162,13 +162,15 @@ export default function ActiveOrders() {
             }
             body {
               font-family: 'Courier New', monospace;
-              font-size: 10px;
-              line-height: 1.2;
+              font-size: 9px;
+              line-height: 1.1;
               color: #000;
               background: #fff;
               margin: 0;
-              padding: 3mm;
-              width: 52mm;
+              padding: 2mm;
+              width: 54mm;
+              max-width: 54mm;
+              overflow: hidden;
             }
             .header {
               text-align: center;
@@ -214,15 +216,15 @@ export default function ActiveOrders() {
         </head>
         <body>
           <div class="header">
-            <div style="font-size: 13px; font-weight: bold;">CRCS BERGEGGI</div>
-            <div style="font-size: 10px; margin-top: 2px; font-weight: bold;">Circolo Ricreativo Culturale Sportivo</div>
+            <div style="font-size: 11px; font-weight: bold;">CRCS BERGEGGI</div>
+            <div style="font-size: 8px; margin-top: 1px; font-weight: bold;">Circolo Ricreativo Culturale Sportivo</div>
           </div>
           
-          <div style="margin-bottom: 6px; font-size: 12px; font-weight: bold;">
-            <div style="font-size: 13px;">TAVOLO: ${order.tableNumber}</div>
-            <div style="font-size: 13px;">CLIENTE: ${order.customerName}</div>
-            <div style="font-size: 12px;">Coperti: ${order.covers}</div>
-            <div style="font-size: 11px;">
+          <div style="margin-bottom: 4px; font-size: 9px; font-weight: bold;">
+            <div style="font-size: 10px;">TAVOLO: ${order.tableNumber}</div>
+            <div style="font-size: 10px;">CLIENTE: ${order.customerName}</div>
+            <div style="font-size: 9px;">Coperti: ${order.covers}</div>
+            <div style="font-size: 8px;">
               ${new Date(order.createdAt).toLocaleDateString('it-IT')} - ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
             </div>
           </div>
@@ -237,10 +239,10 @@ export default function ActiveOrders() {
                 ${categoryItems.map(item => `
                   <div class="item">
                     <div style="flex: 1; min-width: 0; overflow: visible;">
-                      <span style="font-size: 12px; font-weight: bold;">${item.dish.name}</span>
-                      <span style="font-size: 20px; font-weight: 900; color: #000; margin-left: 4px;">${item.quantity.toString()}x</span>
+                      <span style="font-size: 9px; font-weight: bold;">${item.dish.name}</span>
+                      <span style="font-size: 14px; font-weight: 900; color: #000; margin-left: 2px;">${item.quantity.toString()}x</span>
                     </div>
-                    <span style="font-size: 11px; font-weight: bold; white-space: nowrap; margin-left: 4px;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
+                    <span style="font-size: 9px; font-weight: bold; white-space: nowrap; margin-left: 2px;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
                   </div>
                 `).join('')}
               `;
@@ -248,13 +250,13 @@ export default function ActiveOrders() {
           </div>
           
           <div class="total">
-            <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 12px; margin-bottom: 2px; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 10px; margin-bottom: 1px; width: 100%;">
               <span>TOTALE:</span>
               <span style="white-space: nowrap;">€${parseFloat(order.total).toFixed(2)}</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: bold; margin-top: 3px; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: bold; margin-top: 2px; width: 100%;">
               <span>PAGAMENTO:</span>
-              <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; white-space: nowrap;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
+              <span style="background: #f0f0f0; padding: 1px 3px; border-radius: 2px; white-space: nowrap;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
             </div>
           </div>
           
