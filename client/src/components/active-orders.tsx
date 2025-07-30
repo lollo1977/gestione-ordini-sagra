@@ -179,8 +179,11 @@ export default function ActiveOrders() {
             .item {
               display: flex;
               justify-content: space-between;
+              align-items: flex-start;
               margin-bottom: 3px;
               font-size: 11px;
+              width: 100%;
+              overflow: visible;
             }
             .total {
               border-top: 1px solid #000;
@@ -233,11 +236,11 @@ export default function ActiveOrders() {
                 <div class="category">${categoryLabel}</div>
                 ${categoryItems.map(item => `
                   <div class="item">
-                    <div style="flex: 1;">
+                    <div style="flex: 1; min-width: 0; overflow: visible;">
                       <span style="font-size: 12px; font-weight: bold;">${item.dish.name}</span>
                       <span style="font-size: 20px; font-weight: 900; color: #000; margin-left: 4px;">${item.quantity.toString()}x</span>
                     </div>
-                    <span style="font-size: 11px; font-weight: bold;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
+                    <span style="font-size: 11px; font-weight: bold; white-space: nowrap; margin-left: 4px;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
                   </div>
                 `).join('')}
               `;
@@ -245,13 +248,13 @@ export default function ActiveOrders() {
           </div>
           
           <div class="total">
-            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 12px; margin-bottom: 2px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 12px; margin-bottom: 2px; width: 100%;">
               <span>TOTALE:</span>
-              <span>€${parseFloat(order.total).toFixed(2)}</span>
+              <span style="white-space: nowrap;">€${parseFloat(order.total).toFixed(2)}</span>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: bold; margin-top: 3px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: bold; margin-top: 3px; width: 100%;">
               <span>PAGAMENTO:</span>
-              <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
+              <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px; white-space: nowrap;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
             </div>
           </div>
           
