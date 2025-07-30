@@ -85,9 +85,12 @@ export default function ActiveOrders() {
               font-weight: bold;
               text-transform: uppercase;
               border-bottom: 1px solid #000;
-              padding-bottom: 2px;
-              margin: 6px 0 3px 0;
-              font-size: 9px;
+              border-top: 1px dashed #666;
+              padding: 3px 0 2px 0;
+              margin: 8px 0 4px 0;
+              font-size: 10px;
+              background: #f0f0f0;
+              text-align: center;
             }
           </style>
         </head>
@@ -114,7 +117,7 @@ export default function ActiveOrders() {
                 ${categoryItems.map(item => `
                   <div class="item">
                     <span>${item.dish.name}</span>
-                    <span style="font-size: 14px; font-weight: bold;">x${item.quantity}</span>
+                    <span style="font-size: 16px; font-weight: bold; background: #000; color: #fff; padding: 2px 6px; border-radius: 3px;">x${item.quantity}</span>
                   </div>
                 `).join('')}
               `;
@@ -122,7 +125,9 @@ export default function ActiveOrders() {
           </div>
           
           <div class="footer">
-            <div style="font-size: 10px;">Ordine #${order.id.slice(-6)}</div>
+            <div style="font-size: 14px; font-weight: bold; background: #000; color: #fff; padding: 4px; text-align: center; border-radius: 3px;">
+              ORDINE #${order.id.slice(-6).toUpperCase()}
+            </div>
           </div>
           
           <script>
@@ -193,11 +198,14 @@ export default function ActiveOrders() {
             .category {
               font-weight: bold;
               text-transform: uppercase;
-              border-bottom: 1px dashed #666;
-              padding-bottom: 2px;
-              margin: 4px 0 2px 0;
-              font-size: 8px;
-              color: #333;
+              border-bottom: 1px solid #000;
+              border-top: 1px dashed #666;
+              padding: 3px 0 2px 0;
+              margin: 6px 0 3px 0;
+              font-size: 10px;
+              color: #000;
+              background: #f0f0f0;
+              text-align: center;
             }
           </style>
         </head>
@@ -227,7 +235,7 @@ export default function ActiveOrders() {
                   <div class="item">
                     <div style="flex: 1;">
                       <span>${item.dish.name}</span>
-                      <span style="font-size: 12px; font-weight: bold;"> x${item.quantity}</span>
+                      <span style="font-size: 14px; font-weight: bold; background: #000; color: #fff; padding: 1px 4px; border-radius: 2px; margin-left: 4px;">x${item.quantity}</span>
                     </div>
                     <span style="font-size: 11px; font-weight: bold;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
                   </div>
@@ -248,8 +256,10 @@ export default function ActiveOrders() {
           </div>
           
           <div class="footer">
-            <div style="font-size: 10px;">Grazie per la visita!</div>
-            <div style="font-size: 10px;">Ordine #${order.id.slice(-6)}</div>
+            <div style="font-size: 10px; margin-bottom: 4px;">Grazie per la visita!</div>
+            <div style="font-size: 14px; font-weight: bold; background: #000; color: #fff; padding: 4px; text-align: center; border-radius: 3px;">
+              ORDINE #${order.id.slice(-6).toUpperCase()}
+            </div>
           </div>
           
           <script>
