@@ -10,6 +10,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 30, 2025:**
+- ✓ Ottimizzato formato scontrini per carta termica 58mm
+- ✓ Creato template dedicato receipt-templates.tsx per stampa compatta
+- ✓ Font size ridotto e formattazione ottimizzata per stampanti termiche
+- ✓ Larghezza scontrino adattata da 80mm a 58mm standard
+- ✓ Margini ridotti per massimizzare spazio utile di stampa
+
 **July 29, 2025:**
 - ✓ Migrazione progetto da Replit Agent a ambiente Replit standard completata
 - ✓ Database PostgreSQL configurato e sincronizzato con schema aggiornato
