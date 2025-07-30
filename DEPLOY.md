@@ -8,12 +8,20 @@ Il progetto è pronto per il deploy su Render.com. Ecco i passi:
 - Carica il progetto su GitHub
 - Assicurati che tutti i file siano committati
 
-### 2. Crea Database PostgreSQL su Render
+### 2A. Database Render (Opzione 1)
 1. Vai su [render.com](https://render.com)
 2. Crea un nuovo **PostgreSQL** service
 3. Nome: `crcs-bergeggi-db`
 4. Piano: **Free** (per iniziare)
 5. Salva la **External Database URL** che ti viene fornita
+
+### 2B. Database Supabase (Opzione 2 - Consigliata)
+1. Vai su [supabase.com](https://supabase.com)
+2. Crea un nuovo progetto
+3. Nome: `crcs-bergeggi`
+4. Vai in **Settings → Database**
+5. Copia la **Connection String** (URI format)
+6. Sostituisci `[YOUR-PASSWORD]` con la password del database
 
 ### 3. Crea Web Service
 1. Crea un nuovo **Web Service**

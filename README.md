@@ -22,14 +22,16 @@ Sistema di gestione ordini per ristoranti e sagre con interfaccia italiana.
 
 ## Deploy su Render.com
 
-### Opzione 1: Deploy Automatico
+### Opzione 1: Con Database Render
 1. Collega il tuo repository GitHub a Render
 2. Render.com rileverà automaticamente il `render.yaml`
 3. Creerà sia l'app web che il database PostgreSQL
 
-### Opzione 2: Deploy Manuale
-1. Crea un PostgreSQL database su Render (nome: `crcs-bergeggi-db`)
-2. Crea un Web Service con:
+### Opzione 2: Con Supabase Database
+1. Crea un progetto su [supabase.com](https://supabase.com)
+2. Vai in Settings → Database → Connection String
+3. Copia la URI connection string
+4. Crea un Web Service su Render con:
    - Build Command: `npm install && npm run build`
    - Start Command: `npm start`
    - Environment Variables:

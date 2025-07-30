@@ -22,6 +22,8 @@ Preferred communication style: Simple, everyday language.
 - ✓ Preparato deploy per Render.com con configurazione production-ready
 - ✓ Creati file README.md, DEPLOY.md, render.yaml per deployment
 - ✓ Sistema pronto per export e hosting su servizi cloud esterni
+- ✓ Aggiunto supporto Supabase come alternativa database
+- ✓ Creata guida SUPABASE.md per setup con database cloud
 
 **January 28, 2025:**
 - ✓ Sistema di gestione ordini completamente funzionante
