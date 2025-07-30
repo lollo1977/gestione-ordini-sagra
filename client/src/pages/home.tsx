@@ -5,7 +5,6 @@ import OrderForm from "@/components/order-form";
 import ActiveOrders from "@/components/active-orders";
 import MenuManagement from "@/components/menu-management";
 import Reports from "@/components/reports";
-import ReceiptTemplates from "@/components/receipt-templates";
 
 type TabType = "ordini" | "menu" | "report";
 
@@ -64,8 +63,6 @@ export default function Home() {
 
         {activeTab === "report" && <Reports />}
       </main>
-
-      <ReceiptTemplates />
     </div>
   );
 }
