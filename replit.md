@@ -16,6 +16,9 @@ Preferred communication style: Simple, everyday language.
 - ✓ Font size ridotto e formattazione ottimizzata per stampanti termiche
 - ✓ Larghezza scontrino adattata da 80mm a 58mm standard
 - ✓ Margini ridotti per massimizzare spazio utile di stampa
+- ✓ Rimossi dati di esempio automatici dal sistema
+- ✓ Deploy sicuri senza perdita dati - database sempre persistente
+- ✓ Sistema production-ready per hosting esterno senza sovrascritture
 
 **July 29, 2025:**
 - ✓ Migrazione progetto da Replit Agent a ambiente Replit standard completata
