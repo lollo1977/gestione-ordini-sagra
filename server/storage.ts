@@ -32,96 +32,6 @@ export class MemStorage implements IStorage {
     this.dishes = new Map();
     this.orders = new Map();
     this.orderItems = new Map();
-    
-    // Initialize with some sample dishes
-    this.initializeSampleData();
-  }
-
-  private initializeSampleData() {
-    const sampleDishes: Dish[] = [
-      // Antipasti
-      {
-        id: randomUUID(),
-        name: "Antipasto Misto",
-        price: "8.00",
-        category: "antipasti"
-      },
-      {
-        id: randomUUID(),
-        name: "Bruschette",
-        price: "6.00",
-        category: "antipasti"
-      },
-      // Primi
-      {
-        id: randomUUID(),
-        name: "Spaghetti alla Carbonara",
-        price: "12.00",
-        category: "primi"
-      },
-      {
-        id: randomUUID(),
-        name: "Risotto ai Funghi",
-        price: "11.00",
-        category: "primi"
-      },
-      // Secondi
-      {
-        id: randomUUID(),
-        name: "Tagliata di Manzo",
-        price: "18.00",
-        category: "secondi"
-      },
-      {
-        id: randomUUID(),
-        name: "Salmone Grigliato",
-        price: "16.00",
-        category: "secondi"
-      },
-      // Contorni
-      {
-        id: randomUUID(),
-        name: "Patate al Forno",
-        price: "4.00",
-        category: "contorni"
-      },
-      {
-        id: randomUUID(),
-        name: "Insalata Mista",
-        price: "5.00",
-        category: "contorni"
-      },
-      // Dolci
-      {
-        id: randomUUID(),
-        name: "Tiramisu",
-        price: "5.00",
-        category: "dolci"
-      },
-      {
-        id: randomUUID(),
-        name: "Panna Cotta",
-        price: "4.50",
-        category: "dolci"
-      },
-      // Bevande
-      {
-        id: randomUUID(),
-        name: "Acqua Naturale",
-        price: "2.00",
-        category: "bevande"
-      },
-      {
-        id: randomUUID(),
-        name: "Vino della Casa",
-        price: "15.00",
-        category: "bevande"
-      }
-    ];
-
-    sampleDishes.forEach(dish => {
-      this.dishes.set(dish.id, dish);
-    });
   }
 
   async getDishes(): Promise<Dish[]> {
@@ -197,7 +107,8 @@ export class MemStorage implements IStorage {
       ...insertOrder,
       id: orderId,
       createdAt: new Date(),
-      status: insertOrder.status || "active"
+      status: insertOrder.status || "active",
+      covers: insertOrder.covers || 1
     };
 
     this.orders.set(orderId, order);
