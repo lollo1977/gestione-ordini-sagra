@@ -179,9 +179,7 @@ export default function ActiveOrders() {
               padding-bottom: 6px;
             }
             .item {
-              display: flex;
-              justify-content: space-between;
-              align-items: flex-start;
+              display: block;
               margin-bottom: 3px;
               font-size: 11px;
               width: 100%;
@@ -238,11 +236,13 @@ export default function ActiveOrders() {
                 <div class="category">${categoryLabel}</div>
                 ${categoryItems.map(item => `
                   <div class="item">
-                    <div style="flex: 1; min-width: 0; overflow: visible;">
-                      <span style="font-size: 9px; font-weight: bold;">${item.dish.name}</span>
-                      <span style="font-size: 14px; font-weight: 900; color: #000; margin-left: 2px;">${item.quantity.toString()}x</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="font-size: 9px; font-weight: bold; flex: 1; padding-right: 4px;">${item.dish.name}</span>
+                      <span style="font-size: 14px; font-weight: 900; color: #000;">${item.quantity.toString()}x</span>
                     </div>
-                    <span style="font-size: 9px; font-weight: bold; white-space: nowrap; margin-left: 2px;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
+                    <div style="text-align: right; font-size: 9px; font-weight: bold; margin-top: 1px;">
+                      €${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                    </div>
                   </div>
                 `).join('')}
               `;
@@ -250,13 +250,11 @@ export default function ActiveOrders() {
           </div>
           
           <div class="total">
-            <div style="display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 10px; margin-bottom: 1px; width: 100%;">
-              <span>TOTALE:</span>
-              <span style="white-space: nowrap;">€${parseFloat(order.total).toFixed(2)}</span>
+            <div style="text-align: center; font-weight: bold; font-size: 11px; margin-bottom: 2px; padding: 2px; border: 1px solid #000;">
+              TOTALE: €${parseFloat(order.total).toFixed(2)}
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: bold; margin-top: 2px; width: 100%;">
-              <span>PAGAMENTO:</span>
-              <span style="background: #f0f0f0; padding: 1px 3px; border-radius: 2px; white-space: nowrap;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
+            <div style="text-align: center; font-size: 10px; font-weight: bold; margin-top: 2px;">
+              PAGAMENTO: <span style="background: #f0f0f0; padding: 1px 3px; border-radius: 2px;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
             </div>
           </div>
           
