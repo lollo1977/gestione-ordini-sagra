@@ -27,7 +27,7 @@ Sistema di gestione ordini per ristoranti e sagre con interfaccia italiana.
 2. Render.com rileverà automaticamente il `render.yaml`
 3. Creerà sia l'app web che il database PostgreSQL
 
-### Opzione 2: Con Supabase Database
+### Opzione 2: Con Supabase Database (NON TESTATO)
 1. Crea un progetto su [supabase.com](https://supabase.com)
 2. Vai in Settings → Database → Connection String
 3. Copia la URI connection string
