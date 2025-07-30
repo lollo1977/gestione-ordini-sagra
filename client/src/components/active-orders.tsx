@@ -117,7 +117,7 @@ export default function ActiveOrders() {
                 ${categoryItems.map(item => `
                   <div class="item">
                     <span style="font-size: 11px;">${item.dish.name}</span>
-                    <span style="font-size: 24px; font-weight: 900; color: #000;">×${item.quantity}</span>
+                    <span style="font-size: 24px; font-weight: 900; color: #000;">${item.quantity}x</span>
                   </div>
                 `).join('')}
               `;
@@ -235,7 +235,7 @@ export default function ActiveOrders() {
                   <div class="item">
                     <div style="flex: 1;">
                       <span style="font-size: 10px;">${item.dish.name}</span>
-                      <span style="font-size: 20px; font-weight: 900; color: #000; margin-left: 4px;">×${item.quantity}</span>
+                      <span style="font-size: 20px; font-weight: 900; color: #000; margin-left: 4px;">${item.quantity}x</span>
                     </div>
                     <span style="font-size: 11px; font-weight: bold;">€${(parseFloat(item.price) * item.quantity).toFixed(2)}</span>
                   </div>
