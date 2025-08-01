@@ -52,13 +52,14 @@ export default function ActiveOrders() {
             }
             body {
               font-family: 'Courier New', monospace;
-              font-size: 11px;
-              line-height: 1.2;
+              font-size: 13px;
+              line-height: 1.3;
               color: #000;
               background: #fff;
               margin: 0;
-              padding: 3mm;
-              width: 52mm;
+              padding: 2mm;
+              width: 54mm;
+              max-width: 54mm;
             }
             .header {
               text-align: center;
@@ -69,9 +70,9 @@ export default function ActiveOrders() {
             .item {
               display: flex;
               justify-content: space-between;
-              margin-bottom: 4px;
+              margin-bottom: 5px;
               font-weight: bold;
-              font-size: 12px;
+              font-size: 14px;
             }
             .footer {
               border-top: 1px dashed #000;
@@ -96,12 +97,12 @@ export default function ActiveOrders() {
         </head>
         <body>
           <div class="header">
-            <div style="font-weight: bold; font-size: 12px;">🍽️ CUCINA 🍽️</div>
-            <div style="font-size: 10px; margin-top: 3px;">CRCS BERGEGGI</div>
-            <div style="margin-top: 4px;">
-              <div style="font-weight: bold; font-size: 12px;">Tavolo ${order.tableNumber} - ${order.customerName}</div>
-              <div style="font-size: 12px; font-weight: bold;">Coperti: ${order.covers}</div>
-              <div style="font-size: 11px; font-weight: bold;">
+            <div style="font-weight: bold; font-size: 16px;">🍽️ CUCINA 🍽️</div>
+            <div style="font-size: 12px; margin-top: 3px;">CRCS BERGEGGI</div>
+            <div style="margin-top: 6px;">
+              <div style="font-weight: bold; font-size: 15px;">Tavolo ${order.tableNumber} - ${order.customerName}</div>
+              <div style="font-size: 14px; font-weight: bold;">Coperti: ${order.covers}</div>
+              <div style="font-size: 12px; font-weight: bold;">
                 ${new Date(order.createdAt).toLocaleDateString('it-IT')} ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
               </div>
             </div>
@@ -116,8 +117,8 @@ export default function ActiveOrders() {
                 <div class="category">${categoryLabel}</div>
                 ${categoryItems.map(item => `
                   <div class="item">
-                    <span style="font-size: 11px;">${item.dish.name}</span>
-                    <span style="font-size: 24px; font-weight: 900; color: #000;">${item.quantity.toString()}x</span>
+                    <span style="font-size: 14px;">${item.dish.name}</span>
+                    <span style="font-size: 28px; font-weight: 900; color: #000;">${item.quantity.toString()}x</span>
                   </div>
                 `).join('')}
               `;
@@ -125,8 +126,17 @@ export default function ActiveOrders() {
           </div>
           
           <div class="footer">
-            <div style="font-size: 14px; font-weight: bold; background: #000; color: #fff; padding: 4px; text-align: center; border-radius: 3px;">
-              ORDINE #${order.id.slice(-6).toUpperCase()}
+            <div style="text-align: center; font-size: 14px; margin-top: 10px; border-top: 1px dashed #000; padding-top: 8px;">
+              Buon lavoro! 👨‍🍳
+            </div>
+            <div style="margin-top: 20px;">
+              &nbsp;
+            </div>
+            <div style="margin-top: 10px;">
+              &nbsp;
+            </div>
+            <div style="margin-top: 10px;">
+              &nbsp;
             </div>
           </div>
           
@@ -162,14 +172,14 @@ export default function ActiveOrders() {
             }
             body {
               font-family: 'Courier New', monospace;
-              font-size: 8px;
-              line-height: 1.1;
+              font-size: 11px;
+              line-height: 1.2;
               color: #000;
               background: #fff;
               margin: 0;
-              padding: 1.5mm;
-              width: 55mm;
-              max-width: 55mm;
+              padding: 2mm;
+              width: 54mm;
+              max-width: 54mm;
               overflow: hidden;
             }
             .header {
@@ -179,11 +189,11 @@ export default function ActiveOrders() {
               padding-bottom: 6px;
             }
             .item {
-              margin-bottom: 2px;
-              font-size: 8px;
+              margin-bottom: 3px;
+              font-size: 11px;
               width: 100%;
               overflow: visible;
-              line-height: 1.2;
+              line-height: 1.3;
             }
             .total {
               border-top: 1px solid #000;
@@ -214,15 +224,15 @@ export default function ActiveOrders() {
         </head>
         <body>
           <div class="header">
-            <div style="font-size: 11px; font-weight: bold;">CRCS BERGEGGI</div>
-            <div style="font-size: 8px; margin-top: 1px; font-weight: bold;">Circolo Ricreativo Culturale Sportivo</div>
+            <div style="font-size: 14px; font-weight: bold;">CRCS BERGEGGI</div>
+            <div style="font-size: 10px; margin-top: 2px; font-weight: bold;">Circolo Ricreativo Culturale Sportivo</div>
           </div>
           
-          <div style="margin-bottom: 4px; font-size: 9px; font-weight: bold;">
-            <div style="font-size: 10px;">TAVOLO: ${order.tableNumber}</div>
-            <div style="font-size: 10px;">CLIENTE: ${order.customerName}</div>
-            <div style="font-size: 9px;">Coperti: ${order.covers}</div>
-            <div style="font-size: 8px;">
+          <div style="margin-bottom: 6px; font-size: 11px; font-weight: bold;">
+            <div style="font-size: 13px;">TAVOLO: ${order.tableNumber}</div>
+            <div style="font-size: 13px;">CLIENTE: ${order.customerName}</div>
+            <div style="font-size: 12px;">Coperti: ${order.covers}</div>
+            <div style="font-size: 10px;">
               ${new Date(order.createdAt).toLocaleDateString('it-IT')} - ${new Date(order.createdAt).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
             </div>
           </div>
@@ -236,7 +246,7 @@ export default function ActiveOrders() {
                 <div class="category">${categoryLabel}</div>
                 ${categoryItems.map(item => `
                   <div class="item">
-                    <div style="font-size: 8px; font-weight: bold;">
+                    <div style="font-size: 11px; font-weight: bold;">
                       ${item.quantity}x ${item.dish.name} ........... €${(parseFloat(item.price) * item.quantity).toFixed(2)}
                     </div>
                   </div>
@@ -246,18 +256,26 @@ export default function ActiveOrders() {
           </div>
           
           <div class="total">
-            <div style="text-align: center; font-weight: bold; font-size: 11px; margin-bottom: 2px; padding: 2px; border: 1px solid #000;">
+            <div style="text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 4px; padding: 3px; border: 1px solid #000;">
               TOTALE: €${parseFloat(order.total).toFixed(2)}
             </div>
-            <div style="text-align: center; font-size: 10px; font-weight: bold; margin-top: 2px;">
-              PAGAMENTO: <span style="background: #f0f0f0; padding: 1px 3px; border-radius: 2px;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
+            <div style="text-align: center; font-size: 12px; font-weight: bold; margin-top: 4px;">
+              PAGAMENTO: <span style="background: #f0f0f0; padding: 2px 4px; border-radius: 2px;">${order.paymentMethod === 'cash' ? 'CONTANTI' : 'POS'}</span>
             </div>
           </div>
           
           <div class="footer">
-            <div style="font-size: 10px; margin-bottom: 4px;">Grazie per la visita!</div>
-            <div style="font-size: 14px; font-weight: bold; background: #000; color: #fff; padding: 4px; text-align: center; border-radius: 3px;">
-              ORDINE #${order.id.slice(-6).toUpperCase()}
+            <div style="text-align: center; font-size: 12px; margin-top: 10px; border-top: 1px dashed #000; padding-top: 8px;">
+              Grazie per la vostra visita!
+            </div>
+            <div style="margin-top: 20px;">
+              &nbsp;
+            </div>
+            <div style="margin-top: 10px;">
+              &nbsp;
+            </div>
+            <div style="margin-top: 10px;">
+              &nbsp;
             </div>
           </div>
           
